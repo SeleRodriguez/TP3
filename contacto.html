@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selene con S</title>
+  <meta name="description" content="Selene Rodriguez, Diseñadora gráfica, contacto">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pagina-contacto">
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo" aria-label="Selene con S - Inicio">
+        <img src="img/logo.svg" alt="Selene con S" width="337" height="58">
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="index.html">Sobre mí</a>
+        <a href="mis-trabajos.html">Mis trabajos</a>
+        <a href="contacto.html" aria-current="page">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero hero--contacto">
+      <h1 class="hero__titulo">Trabajemos juntos</h1>
+      <p>¿Tenés una idea en mente, querés renovar tu imagen o simplemente querés charlar sobre algún proyecto?<br>¡Estoy a un mensajito de distancia! Contactame y hagamos algo copado juntos</p>
+    </section>
+
+    <div class="contacto">
+      <img class="contacto__foto" src="img/contacto-foto.jpg" alt="Libros abiertos apilados sobre un fondo color arena" width="333" height="501">
+
+      <!-- el formulario todavia no es funcional -->
+      <form class="formulario" action="#" method="post">
+        <div class="formulario__campo">
+          <label for="nombre">Nombre y apellido</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Armando Pa Ginas" autocomplete="name" required>
+        </div>
+
+        <div class="formulario__campo">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="PersonaSuperReal@gmail.com" autocomplete="email" required>
+        </div>
+
+        <fieldset class="opciones">
+          <legend>Me gustaría trabajar...</legend>
+          <div class="opciones__grilla">
+            <label class="opcion"><input type="checkbox" name="trabajo" value="editorial"><span>Editorial</span></label>
+            <label class="opcion"><input type="checkbox" name="trabajo" value="identidad-visual"><span>Identidad visual</span></label>
+            <label class="opcion"><input type="checkbox" name="trabajo" value="redes-sociales"><span>Redes sociales</span></label>
+            <label class="opcion"><input type="checkbox" name="trabajo" value="papeleria"><span>Papelería</span></label>
+            <label class="opcion"><input type="checkbox" name="trabajo" value="flyers"><span>Flyers</span></label>
+            <label class="opcion"><input type="checkbox" name="trabajo" value="edicion-de-videos"><span>Edición de videos</span></label>
+          </div>
+        </fieldset>
+
+        <div class="formulario__campo">
+          <label for="mensaje">Desarrolla tu idea:</label>
+          <textarea id="mensaje" name="mensaje" placeholder=" " required></textarea>
+        </div>
+
+        <button class="formulario__enviar" type="submit">Enviar</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a href="https://www.instagram.com/sele_con_s/" target="_blank" rel="noopener noreferrer">
+        <img src="img/icono-instagram.svg" alt="" width="26" height="26">
+        <span>@sele_con_s</span>
+      </a>
+      <p>© 2026 Selene Rodriguez - Portfolio personal. Proyecto Académico.</p>
+      <a href="https://www.behance.net/selenerodriguez" target="_blank" rel="noopener noreferrer">
+        <img src="img/icono-behance.svg" alt="" width="26" height="26">
+        <span>behance.net/selenerodriguez</span>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

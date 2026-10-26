@@ -1,0 +1,543 @@
+
+@font-face {
+  font-family: 'Beyond Wonderland';
+  src: url('../fonts/BeyondWonderland.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Leander';
+  src: url('../fonts/Leander.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+:root {
+  --bordo: #870354;
+  --bordo-oscuro: #480230;
+  --violeta: #290442;
+  --rosa: #DA88C2;
+  --negro: #08010C;
+  --blanco: #F9F2F5;
+  --rosa-claro: #E9D5DF;
+
+  --fuente-display: 'Beyond Wonderland', 'Leander', Georgia, serif;  /* títulos grandes */
+  --fuente-titulos: 'Leander', Georgia, serif;                      /* títulos medianos */
+  --fuente-texto: 'Alegreya', Georgia, serif;                       /* textos*/
+
+  --ancho-header: 1280px;
+  --ancho-contenido: 1360px;
+  --ancho-footer: 1388px;
+  --gutter: clamp(16px, 3vw, 40px);
+}
+
+.pagina-inicio {
+  --fondo: var(--negro);
+  --header-bg: var(--bordo);
+  --footer-bg: linear-gradient(to bottom, var(--negro), var(--bordo) 98.5%);
+  --nav-activo-bg: var(--violeta);
+  --nav-activo-color: var(--blanco);
+  --nav-subrayado: var(--violeta);
+  --nav-hover-bg: var(--violeta);
+}
+.pagina-trabajos {
+  --fondo: var(--violeta);
+  --header-bg: linear-gradient(to bottom, var(--negro), var(--violeta));
+  --footer-bg: linear-gradient(to bottom, var(--violeta), var(--negro) 98.5%);
+  --nav-activo-bg: var(--rosa);
+  --nav-activo-color: var(--violeta);
+  --nav-subrayado: var(--rosa);
+  --nav-hover-bg: var(--rosa);
+}
+.pagina-contacto {
+  --fondo: var(--bordo);
+  --header-bg: var(--violeta);
+  --footer-bg: linear-gradient(to bottom, var(--bordo) 1.4%, var(--violeta) 50.5%);
+  --nav-activo-bg: var(--rosa);
+  --nav-activo-color: var(--violeta);
+  --nav-subrayado: var(--rosa);
+  --nav-hover-bg: var(--rosa);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--fondo, var(--negro));
+  color: var(--blanco);
+  font-family: var(--fuente-texto);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.33;
+}
+
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+ul { list-style: none; }
+
+/* ---------- Header ---------- */
+.header {
+  background: var(--header-bg, var(--bordo));
+  height: 120px;
+}
+
+.header__inner {
+  max-width: calc(var(--ancho-header) + 2 * var(--gutter));
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo img { width: 337px; }
+
+.nav { display: flex; gap: 70px; }
+
+.nav a {
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--blanco);
+  text-decoration: underline dashed var(--nav-subrayado, var(--violeta)) 1px;
+  text-underline-offset: 5px;
+  transition: background-color .2s, color .2s;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  background: var(--nav-hover-bg, var(--violeta));
+  color: var(--blanco);
+  text-decoration-color: transparent;
+}
+
+.nav a[aria-current="page"]:hover { background: var(--nav-activo-bg); color: var(--nav-activo-color); }
+
+.nav a[aria-current="page"] {
+  background: var(--nav-activo-bg, var(--violeta));
+  color: var(--nav-activo-color, var(--blanco));
+  font-style: italic;
+  text-decoration: none;
+}
+
+/* ---------- Hero---------- */
+.hero {
+  background: linear-gradient(to bottom, var(--bordo) 10.6%, var(--bordo-oscuro) 59.1%, var(--negro) 100%);
+  padding: 56px var(--gutter) 70px;
+  text-align: center;
+}
+
+.hero__monograma { width: 81px; margin: 0 auto 16px; }
+
+/* Títulos grandes: Beyond Wonderland */
+.hero__nombre,
+.sobre-mi__titulo,
+.hero__titulo {
+  font-family: var(--fuente-display);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.hero__nombre { font-size: 60px; color: var(--blanco); margin-bottom: 8px; }
+
+.hero__rol {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: .04em;
+  word-spacing: .15em;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.hero__bienvenida { font-size: 16px; }
+
+/* ---------- Contenido principal ---------- */
+.main { flex: 1; }
+
+.contenido {
+  max-width: calc(var(--ancho-contenido) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 157px var(--gutter) 171px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
+  column-gap: 40px;
+  row-gap: 137px;
+}
+
+/* Sobre mi */
+.sobre-mi { padding: 46px 0 0 20px; align-self: start; }
+.sobre-mi__titulo { font-size: 52px; color: var(--rosa); margin-bottom: 44px; }
+.sobre-mi__texto { max-width: 540px; }
+
+.foto { padding: 0 20px; }
+.foto img {
+  width: 100%;
+  aspect-ratio: 560 / 485.5;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Habilidades */
+.habilidades {
+  width: 100%;
+  max-width: 490px;
+  margin-left: 20px;
+  padding-top: 20px;
+}
+
+.habilidad {
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 24px;
+  min-height: 80px;
+}
+
+.habilidad__icono { width: 33px; margin: 0 -4px; max-width: none; }
+
+.habilidad__nombre {
+  font-family: var(--fuente-texto);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.patas { display: flex; gap: 10px; }
+.patas img { width: 35px; margin: 0 -4px; max-width: none; }
+
+/* Tarjetas */
+.tarjetas { display: flex; flex-direction: column; gap: 60px; align-self: start; }
+
+.tarjeta {
+  background: var(--violeta);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.tarjeta__titulo {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  margin-bottom: 36px;
+}
+
+.tarjeta p { max-width: 500px; }
+.tarjeta ul { max-width: 500px; list-style: disc; padding-left: 26px; font-size: 16px; }
+.tarjeta li + li { margin-top: 4px; }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--footer-bg, var(--negro));
+  height: 150px;
+  color: var(--rosa-claro);
+}
+
+.footer__inner {
+  max-width: calc(var(--ancho-footer) + 2 * var(--gutter));
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 16px;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus-visible { text-decoration: underline; }
+
+.footer img { width: 26px; max-width: none; }
+
+/* ---------- Mis trabajos ---------- */
+.trabajos {
+  max-width: calc(var(--ancho-contenido) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 200px var(--gutter) 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 190px;
+}
+
+.proyecto {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 56px;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.proyecto__titulo {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  color: var(--rosa);
+  max-width: 530px;
+  margin-bottom: 32px;
+}
+
+.proyecto__texto p { font-size: 15px; line-height: 1.45; max-width: 620px; }
+.proyecto__texto p + p { margin-top: 0; }
+.proyecto__texto .nota { font-style: italic; }
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px 18px;
+}
+
+.galeria figure {
+  position: relative;
+  aspect-ratio: 199 / 211;
+  overflow: hidden;
+  background: #D9D9D9;
+}
+
+.galeria img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galeria .alta  { grid-column: 3; grid-row: 1 / span 2; aspect-ratio: auto; }
+.galeria .ancha { grid-column: 2 / span 2; grid-row: 2; aspect-ratio: auto; }
+
+.galeria .galeria__play {
+  inset: 50% auto auto 50%;
+  width: 56px;
+  height: 56px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ---------- Contacto ---------- */
+.hero--contacto {
+  background: linear-gradient(to bottom, var(--violeta) 6.25%, var(--bordo) 100%);
+  padding: 50px var(--gutter) 62px;
+  text-align: center;
+}
+
+.hero__titulo { font-size: 52px; color: var(--blanco); margin: 0 0 30px; }
+.hero--contacto p { max-width: 740px; margin: 0 auto; font-size: 16px; line-height: 1.25; }
+
+.contacto {
+  max-width: calc(1280px + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 36px var(--gutter) 50px;
+  display: grid;
+  grid-template-columns: minmax(0, 502px) minmax(0, 712px);
+  column-gap: 53px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contacto__foto { /* -- esta foto se va a cambiar por algo mas personal --*/
+  width: 100%;
+  aspect-ratio: 502 / 692;
+  object-fit: cover;
+}
+
+.formulario__campo { margin-bottom: 48px; }
+
+.formulario label:not(.opcion),
+.formulario legend {
+  display: block;
+  font-family: var(--fuente-texto);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario textarea {
+  display: block;
+  width: 100%;
+  height: 51px;
+  padding: 0 22px;
+  background: transparent;
+  border: 2px solid var(--rosa-claro);
+  border-radius: 8px;
+  color: var(--blanco);
+  font-family: var(--fuente-texto);
+  font-size: 15px;
+}
+
+.formulario textarea { height: 150px; padding: 16px 22px; resize: vertical; }
+
+.formulario ::placeholder { color: var(--rosa); opacity: 1; }
+
+.formulario input:not(:placeholder-shown),
+.formulario textarea:not(:placeholder-shown),
+.formulario input:focus,
+.formulario textarea:focus { border-color: var(--rosa); outline: none; }
+
+.formulario input:focus-visible,
+.formulario textarea:focus-visible { box-shadow: 0 0 0 2px var(--rosa); }
+
+.opciones {
+  border: 0;
+  margin-bottom: 36px;
+}
+
+.opciones legend { margin-bottom: 22px; }
+
+.opciones__grilla {
+  display: grid;
+  grid-template-columns: 53% 47%;
+  row-gap: 25px;
+}
+
+.formulario .opcion {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  font-family: var(--fuente-texto);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0;
+  cursor: pointer;
+}
+
+.opcion input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  border: 2px solid var(--rosa);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.opcion input:checked { background: var(--rosa); box-shadow: inset 0 0 0 5px var(--bordo); }
+.opcion input:focus-visible { outline: 2px solid var(--blanco); outline-offset: 2px; }
+
+.formulario__campo:last-of-type { margin-bottom: 0; }
+
+.formulario__enviar {
+  margin-top: 30px;
+  padding: 7px 14px;
+  background: var(--violeta);
+  border: 2px solid var(--violeta);
+  border-radius: 4px;
+  color: var(--blanco);
+  font-family: var(--fuente-texto);
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+
+.formulario__enviar:hover,
+.formulario__enviar:focus-visible { background: var(--rosa); color: var(--violeta); }
+
+/* Pantallas medianas */
+@media (max-width: 1280px) {
+  .contenido { row-gap: 100px; padding-top: 120px; padding-bottom: 120px; }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .contenido {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 56px;
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+
+  .trabajos { padding-top: 100px; padding-bottom: 100px; gap: 100px; }
+  .proyecto { grid-template-columns: minmax(0, 1fr); row-gap: 32px; padding: 0; }
+  .proyecto .galeria { order: -1; max-width: 640px; }
+
+  .contacto { grid-template-columns: minmax(0, 1fr); row-gap: 40px; max-width: 760px; }
+  .contacto__foto { max-width: 502px; aspect-ratio: 502 / 520; margin: 0 auto; }
+
+  /* Orden: texto, foto, habilidades, tarjetas */
+  .sobre-mi { padding: 0; }
+  .sobre-mi__texto { max-width: 640px; }
+  .foto { padding: 0; max-width: 600px; }
+  .habilidades { margin-left: 0; max-width: 520px; padding-top: 0; }
+  .tarjetas { gap: 32px; max-width: 600px; }
+}
+
+/* Celular */
+@media (max-width: 700px) {
+  body { font-size: 16px; }
+
+  .header { height: auto; padding: 16px 0; }
+  .header__inner { flex-direction: column; gap: 14px; }
+  .logo img { width: 240px; }
+  .nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  .hero { padding: 40px var(--gutter) 48px; }
+  .hero__monograma { width: 64px; }
+  .hero__nombre { font-size: 38px; }
+  .hero__rol { font-size: 22px; }
+
+  .sobre-mi__titulo { font-size: 38px; margin-bottom: 24px; }
+
+  .habilidad { column-gap: 14px; min-height: 64px; }
+  .habilidad__nombre { font-size: 19px; }
+  .patas { gap: 0; }
+  .patas img { width: 28px; margin: 0 -2px; }
+
+  .tarjeta__titulo { font-size: 23px; margin-bottom: 20px; }
+
+  .trabajos { padding-top: 56px; padding-bottom: 64px; gap: 64px; }
+  .proyecto__titulo { font-size: 23px; margin-bottom: 20px; }
+  .galeria { gap: 12px; }
+  .galeria .galeria__play { width: 40px; height: 40px; }
+
+  .hero--contacto { padding: 36px var(--gutter) 40px; }
+  .hero__titulo { font-size: 38px; margin-bottom: 20px; }
+  .formulario label:not(.opcion), .formulario legend { font-size: 20px; }
+  .formulario__campo { margin-bottom: 32px; }
+  .opciones__grilla { grid-template-columns: 1fr 1fr; column-gap: 12px; }
+  .opcion { gap: 12px; }
+
+  .footer { height: auto; padding: 28px 0; }
+  .footer__inner { flex-direction: column; text-align: center; gap: 14px; font-size: 15px; }
+}
+
+/* Solo para lectores de pantalla */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
